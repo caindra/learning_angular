@@ -2,13 +2,22 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
-  template: '<h1>Hola Mundo</h1>',
+  template: `
+    <h3>Counter: {{ counter }}</h3>
+
+    <button (click)="increaseBy(1)">Increment</button>
+    <button (click)="resetCounter()">Reset</button>
+    <button (click)="increaseBy(-1)">Increment</button>
+  `,
 })
 export class CounterComponent {
-  public count = 0;
+  public counter :number = 10;
 
-  increment(value: number): void {
-    this.count += value;
+  increaseBy(value: number): void {
+    this.counter += value;
   }
 
+  resetCounter(): void {
+    this.counter = 10;
+  }
 }
