@@ -1,5 +1,5 @@
 <h4>Agregar personaje</h4>
-<form class="row">
+<form class="row" (ngSubmit)="emitCharacter()">
   <label for="name">Nombre</label>
   <input
     class="form-control mb-2"
@@ -19,7 +19,6 @@
     placeholder="Descripción">
 
   <button
-    (click)="emitCharacter()"
     class="btn btn-primary"
     type="submit">
       Agregar

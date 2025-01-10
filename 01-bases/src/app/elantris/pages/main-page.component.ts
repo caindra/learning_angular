@@ -30,4 +30,8 @@ export class MainPageComponent {
       description: 'A merchant'
     }
   ];
+
+  onNewCharacter(character: Character): void {
+    console.log(character);
+  }
 }
