@@ -16,10 +16,11 @@ export class ListComponent {
 
   //first, the index of the character is prepared to be emitted, creating a new event
   @Output()
-  public onDelete: EventEmitter<number> = new EventEmitter();
+  public onDelete: EventEmitter<string> = new EventEmitter();
 
   //then, the index is emitted with this new event
-  onDeleteCharacter(index: number): void {
-    this.onDelete.emit(index);
+  onDeleteCharacter( id?: string ): void {
+    if (!id) return;
+    this.onDelete.emit(id);
   }
 }
