@@ -9,7 +9,17 @@ import { ElantrisService } from '../services/elantris.service';
 })
 
 export class MainPageComponent {
-  constructor( public elantrisService: ElantrisService ) {
-    
+  constructor( private elantrisService: ElantrisService ) {  }
+
+  get characters(): Character[] {
+    return [...this.elantrisService.characters];
+  }
+
+  onDeleteCharacter(id: string): void {
+    this.elantrisService.deleteCharacterById(id);
+  }
+
+  onNewCharacter(character: Character): void {
+    this.elantrisService.addCharacter(character);
   }
 }

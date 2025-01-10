@@ -35,7 +35,7 @@ export class ElantrisService {
     }
   ];
 
-  onNewCharacter(character: Character): void {
+  addCharacter(character: Character): void {
     const newCharacter = {...character, id: uuid()}; // spread character object and add id
     this.characters.push(newCharacter);
     //this.characters.unshift(character);
