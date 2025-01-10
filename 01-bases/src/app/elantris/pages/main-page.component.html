@@ -2,8 +2,9 @@
 <hr>
 
 <div class="row">
+  <!--Lastly, the character list listens to the event created-->
   <div class="col">
-    <app-elantris-list [characterList]="characters" ></app-elantris-list>
+    <app-elantris-list [characterList]="characters" (onDelete)="onDeleteCharacter($event)"></app-elantris-list>
 
   </div>
   <div class="col">

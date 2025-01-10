@@ -22,12 +22,13 @@ export class AddCharacterComponent {
   emitCharacter(): void {
     //this is used to debug the code, it will stop the code execution and open the browser's debugger
     //It is useful to check the value of variables and objects at a certain point in the code
-    debugger;
+    //debugger;
     console.log(this.character);
 
     if(this.character.name.length === 0) return;
 
-    this.onNewCharacter.emit(this.character);
+    // Emit a copy of the 'character' object to avoid shared reference issues when adding it to the list.
+    this.onNewCharacter.emit({...this.character});
 
     this.character.name = '';
     this.character.description = '';
