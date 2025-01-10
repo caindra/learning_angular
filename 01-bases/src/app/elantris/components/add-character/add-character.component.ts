@@ -20,6 +20,9 @@ export class AddCharacterComponent {
   };
 
   emitCharacter(): void {
+    //this is used to debug the code, it will stop the code execution and open the browser's debugger
+    //It is useful to check the value of variables and objects at a certain point in the code
+    debugger;
     console.log(this.character);
 
     if(this.character.name.length === 0) return;
