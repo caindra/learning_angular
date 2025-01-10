@@ -8,10 +8,22 @@
     let isEven = even;
     let isOdd = odd;
   "
-    class="list-group-item">
+    class="list-group-item"
+    [ngClass]="{
+        'list-group-item-dark': isLast,
+        'list-group-item-primary': isEven,
+      }">
     <span class="text-primary">{{i + 1}}. </span>
     <span>{{ character.name }}</span> - {{ character.description }}.
     <span>Es el primero: {{ isFirst }}. </span>
     <span>Es el último: {{ isLast }} </span>
   </li>
 </ul>
+
+<!--
+This can be done, however, it is not recommended to use it because it is not very readable and HTML
+should be used to structure the content, not to add logic to it:
+  class = "list-group-item {{ i === 0 ? 'list-group-item-success' : '' }}"
+
+Using [] means that Angular takes control over the attribute, turning it into a javascript expression.
+-->
