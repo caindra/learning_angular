@@ -1,8 +1,33 @@
 <h4>Agregar personaje</h4>
 <form class="row">
-  <label for="nombre">Nombre</label>
-  <input class="form-control mb-2" name="nombre" id="nombre" type="text" placeholder="Nombre">
-  <label for="descripcion">Descripción</label>
-  <input class="form-control mb-2" name="descripcion" id="descripcion" type="text" placeholder="Descripción">
-  <button class="btn btn-primary">Agregar</button>
+  <label for="name">Nombre</label>
+  <input
+    class="form-control mb-2"
+    [(ngModel)]="character.name"
+    name="name"
+    id="name"
+    type="text"
+    placeholder="Nombre">
+
+  <label for="description">Descripción</label>
+  <input
+    class="form-control mb-2"
+    [(ngModel)]="character.description"
+    name="description"
+    id="description"
+    type="text"
+    placeholder="Descripción">
+
+  <button
+    (click)="emitCharacter()"
+    class="btn btn-primary"
+    type="submit">
+      Agregar
+  </button>
+
+  <pre>{{ character | json }}</pre>
 </form>
+
+<!--
+[()] es una forma de hacer un two-way binding, es decir, que el valor de la variable se actualice en ambos sentidos.
+-->

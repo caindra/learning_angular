@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Character } from '../../interfaces/character.interface';
 
 @Component({
   selector: 'app-add-character',
@@ -8,5 +9,12 @@ import { Component } from '@angular/core';
   styleUrl: './add-character.component.scss'
 })
 export class AddCharacterComponent {
+  public character: Character = {
+    name: '',
+    description: ''
+  };
 
+  emitCharacter(): void {
+    console.log(this.character);
+  }
 }
