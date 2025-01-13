@@ -2,8 +2,11 @@
   <h3 class="text-light">Gifts App</h3>
   <hr class="text-light">
   <div class="list-group list-reset">
-    <button class="list-group-item list-group-item-action">
-      The Legend of Zelda
+    <button
+      class="list-group-item list-group-item-action"
+      *ngFor="let tag of tagsHistory"
+      >
+      {{ tag | titlecase }}
     </button>
   </div>
 </div>
