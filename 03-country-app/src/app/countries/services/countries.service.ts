@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, delay, map, Observable, of } from 'rxjs';
+import { catchError, tap, map, Observable, of } from 'rxjs';
 import { Country } from '../interfaces/country';
+import { CacheStore } from '../interfaces/cache-store.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +10,18 @@ import { Country } from '../interfaces/country';
 export class CountriesService {
   private apiUrl: string = 'https://restcountries.com/v3.1';
 
+  public cacheStore: CacheStore = {
+    byCapital: {term: '', countries: []},
+    byCountries: {term: '', countries: []},
+    byRegion: {region: '', countries: []},
+  }
+
   constructor(private http: HttpClient) { }
 
   private getCountriesRequest(url: string): Observable<Country[]> {
     return this.http.get<Country[]>(url)
     .pipe(
       catchError(error => of([])),
-      //delay(2000),
     );
   }
 
@@ -30,16 +36,31 @@ export class CountriesService {
 
   searchCapital(queryString: string): Observable<Country[]> {
     const url = `${this.apiUrl}/capital/${queryString}`;
-    return this.getCountriesRequest(url);
+    return this.getCountriesRequest(url)
+    .pipe(
+      tap(countries => {
+        this.cacheStore.byCapital = {term: queryString, countries: countries};
+      })
+    );
   }
 
   searchCountry(queryString: string): Observable<Country[]> {
     const url = `${this.apiUrl}/name/${queryString}`;
-    return this.getCountriesRequest(url);
+    return this.getCountriesRequest(url)
+    .pipe(
+      tap(countries => {
+        this.cacheStore.byCapital = {term: queryString, countries: countries};
+      })
+    );
   }
 
   searchRegion(queryString: string): Observable<Country[]> {
     const url = `${this.apiUrl}/region/${queryString}`;
-    return this.getCountriesRequest(url);
+    return this.getCountriesRequest(url)
+    .pipe(
+      tap(countries => {
+        this.cacheStore.byCapital = {term: queryString, countries: countries};
+      })
+    );
   }
 }
