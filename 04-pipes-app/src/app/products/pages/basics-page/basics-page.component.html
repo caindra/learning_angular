@@ -1,46 +1,48 @@
 <p-panel header="Pipes básicos" class="p-1">
-  <p>Pipes incluídos en Angular - Usualmente incluidos en el Common Module</p>
+  <p>Pipes incluidos en Angular - Usualmente incluidos en el Common Module</p>
 </p-panel>
 
 <div class="grid">
   <div class="col-12 md:col-4">
-    <p-card header="uppercase">
+    <p-card header="Uppercase">
       {{ nameLower | uppercase }}
     </p-card>
   </div>
   <div class="col-12 md:col-4">
-    <p-card header="lowercase">
+    <p-card header="Lowercase">
       {{ nameUpper | lowercase }}
     </p-card>
   </div>
   <div class="col-12 md:col-4">
-    <p-card header="titlecase">
+    <p-card header="Titlecase">
       {{ fullName | titlecase }}
     </p-card>
-
+  </div>
 
   <div class="col-12 md:col-6">
-    <p-card header="titlecase">
+    <p-card header="Date Pipes (Ejemplos)">
       <ol>
-        <li>fecha</li>
-        <li>fecha | date</li>
-        <li>fecha | date:'short'</li>
-        <li>fecha | date:'long'</li>
-        <li>fecha | date:'MMMM'</li>
-        <li>fecha | date:'MMMM dd, yyyy'</li>
+        <li> fecha </li>
+        <li> fecha | date </li>
+        <li> fecha | date:'short' </li>
+        <li> fecha | date:'long' </li>
+        <li> fecha | date:'MMMM' </li>
+        <li> fecha | date:'MMMM dd, yyyy' </li>
       </ol>
 
-      <hr/>
-
+      <hr>
       <ol>
-        <li>fecha | date:'long':'GMT-6'</li>
-        <li>fecha | date:'long':'GMT-4'</li>
+        <li> fecha | date:'long':'GMT-6' </li>
+        <li> fecha | date:'long':'GMT-4' </li>
+        <li> fecha | date:'long':'':'es' </li>
+        <li> fecha | date:'long':'':'en-GB' </li>
+        <li> fecha | date:'long':'':'fr' </li>
       </ol>
     </p-card>
   </div>
 
   <div class="col-12 md:col-6">
-    <p-card header="titlecase">
+    <p-card header="Date Pipes (Custom)">
       <ol>
         <li>{{ customDate }}</li>
         <li>{{ customDate | date }}</li>
@@ -50,13 +52,15 @@
         <li>{{ customDate | date:'MMMM dd, yyyy' }}</li>
       </ol>
 
-      <hr/>
-      
+      <hr />
+
       <ol>
         <li>{{ customDate | date:'long':'GMT-6' }}</li>
         <li>{{ customDate | date:'long':'GMT-4' }}</li>
+        <li> {{ customDate | date:'long':'':'es' }} </li>
+        <li> {{ customDate | date:'long':'':'en-GB' }} </li>
+        <li> {{ customDate | date:'long':'':'fr' }} </li>
       </ol>
-
     </p-card>
   </div>
 </div>
