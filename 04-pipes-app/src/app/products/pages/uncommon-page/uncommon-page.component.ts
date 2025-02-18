@@ -17,6 +17,12 @@ export class UncommonPageComponent {
     'other': 'invitarle'
   }
 
+  changeClient(): void {
+    this.name = 'Tobio Kageyama';
+    this.gender = 'male';
+  }
+
+  //i18nPlural
   public clients: string[] = ['Caindra', 'Kageyama', 'Hinata', 'Tsukishima'];
   public clientsMap = {
     '=0': 'no hay clientes esperando',
@@ -24,12 +30,15 @@ export class UncommonPageComponent {
     'other': 'tenemos # clientes esperando'
   }
 
-  changeClient(): void {
-    this.name = 'Tobio Kageyama';
-    this.gender = 'male';
-  }
-
   deleteClient(): void {
     this.clients.shift();
   }
+
+  //KeyValue Pipe
+  public person = {
+    name: 'Caindra',
+    age: 250,
+    address: 'Neverland'
+  }
+
 }
