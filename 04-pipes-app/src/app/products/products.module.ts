@@ -9,6 +9,8 @@ import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { OrderComponent } from './pages/order/order.component';
 
 import { ToogleCasePipe } from './pipes/toogle-case.pipe';
+import { CanFlyPipe } from './pipes/can-fly.pipe';
+import { SortByPipe } from './pipes/sort-by.pipe';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { ToogleCasePipe } from './pipes/toogle-case.pipe';
     OrderComponent,
 
     //Pipes
-    ToogleCasePipe
+    CanFlyPipe,
+    ToogleCasePipe,
+    SortByPipe,
   ],
   imports: [
     CommonModule,
