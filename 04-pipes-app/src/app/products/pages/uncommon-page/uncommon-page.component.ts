@@ -17,8 +17,19 @@ export class UncommonPageComponent {
     'other': 'invitarle'
   }
 
+  public clients: string[] = ['Caindra', 'Kageyama', 'Hinata', 'Tsukishima'];
+  public clientsMap = {
+    '=0': 'no hay clientes esperando',
+    '=1': 'tenemos un cliente esperando',
+    'other': 'tenemos # clientes esperando'
+  }
+
   changeClient(): void {
     this.name = 'Tobio Kageyama';
     this.gender = 'male';
+  }
+
+  deleteClient(): void {
+    this.clients.shift();
   }
 }
