@@ -5,6 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeng/themes/aura';
+import { PrimeNgModule } from './prime-ng/prime-ng.module';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -12,9 +17,17 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    PrimeNgModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync(),
+    providePrimeNG({
+        theme: {
+            preset: Aura
+        }
+    }),
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
